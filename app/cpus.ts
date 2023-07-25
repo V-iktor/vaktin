@@ -1,4 +1,10 @@
-export interface Retailer {
+export const retailers = ["kisildalur" , "tolvutek" , "computer" , "tolvulistinn" , "tolvutaekni"] as const;
+
+type Keys = (typeof retailers)[number];
+
+type Retailer = { [key in Keys]?: RetailerDetails }
+
+export type RetailerDetails = {
   retailer: string;
   url: string;
   component: string;
@@ -6,29 +12,40 @@ export interface Retailer {
   price: number;
 }
 
-export interface CpuRow {
+export type CpuRow = {
+  full_name: string;
   score_single_core: string;
   score_multi_core: string;
-  kisildalur?: Retailer;
-  tolvutek?: Retailer;
-  computer?: Retailer;
-  tolvulistinn?: Retailer;
-  tolvutaekni?: Retailer;
-}
+} & Retailer;
 
-export interface CpuObject {
+export type CpuObject = {
   [key: string]: CpuRow;
 }
 
-export const retailers = [
-  "kisildalur",
-  "tolvutek",
-  "computer",
-  "tolvulistinn",
-  "tolvutaekni",
-];
+// export interface CpuRow {
+//   full_name: string;
+//   score_single_core: string;
+//   score_multi_core: string;
+//   Record<string, Retailer>
+// }
 
-export const cpus = {
+// export type Retail = {
+//   [key in "kisildalur" | "tolvutek" | "computer" | "tolvulistinn" | "tolvutaekni"]: Retailer;
+// };
+
+// export interface CpuObject {
+//   [key: string]: CpuRow;
+// }
+
+// export const retailers = [
+//   "kisildalur",
+//   "tolvutek",
+//   "computer",
+//   "tolvulistinn",
+//   "tolvutaekni",
+// ];
+
+export const cpus: CpuObject = {
   "10600K": {
     full_name: "Core i5 10600K",
     score_multi_core: "10386",
