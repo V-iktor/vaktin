@@ -1,3 +1,6 @@
+export const breakpoint = 768;
+export const breakpointPx = `${breakpoint}px`;
+
 export const format_currency = (value?: string | number) => {
   if (!value) return "";
   if (typeof value === "string")

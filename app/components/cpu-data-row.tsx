@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from "react"
-import { format_currency, format_score } from "../utils"
+import { breakpoint, breakpointPx, format_currency, format_score } from "../utils"
 import { CpuRow, RetailerDetails, retailers } from "../cpus"
-
-const breakpoint = 600
 
 type CpuProps = {
   element: CpuRow
@@ -19,7 +17,7 @@ export const CpuDataRow = ({
   useEffect(() => {
     setIsDesktop(window.innerWidth > breakpoint)
     const mql: MediaQueryList = window.matchMedia(
-      `(min-width: ${breakpoint}px)`
+      `(min-width: ${breakpointPx})`
     )
 
     const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
