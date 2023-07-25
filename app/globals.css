@@ -202,6 +202,16 @@ tbody tr:hover {
   font-weight: bold;
 }
 
+@media only screen and (max-width: 600px) {
+  .normal,
+  .lowest,
+  .low {
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
 .lowest {
   outline: 1px solid green;
   background-color: rgba(0, 255, 0, 0.075);
@@ -219,8 +229,14 @@ tbody tr:hover {
   white-space: nowrap;
   text-align: left;
   padding: 1rem;
+  font-size: 0.9rem;
 }
 
 .score {
   opacity: 0.5;
+  text-align: right;
+}
+
+.score-mobile {
+  padding-right: 1rem;
 }

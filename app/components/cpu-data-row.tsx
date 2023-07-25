@@ -48,11 +48,11 @@ export const CpuDataRow = ({
           <td className="name-mobile" colSpan={retailers.length - 1}>
             {element.full_name}
           </td>
-          <td className="score">
+          <td className="score score-mobile">
             {format_score(
               multicore ? element.score_multi_core : element.score_single_core
             )}
-            stig
+            {" stig"}
           </td>
         </tr>
       )}
