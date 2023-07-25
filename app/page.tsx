@@ -85,13 +85,11 @@ export default function Home() {
               .filter((e) => amd || !e.full_name.includes("Ryzen"))
               .sort(multicore ? multi_sort : single_sort)
               .map((element) => (
-                <>
-                  <CpuDataRow
-                    key={element.full_name}
-                    element={element}
-                    multicore={multicore}
-                  />
-                </>
+                <CpuDataRow
+                  key={element.full_name}
+                  element={element}
+                  multicore={multicore}
+                />
               ))}
           </tbody>
         </table>

@@ -14,12 +14,10 @@ export const CpuDataRow = ({
 }: CpuProps & {
   multicore?: boolean
 }) => {
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth > breakpoint : true
-  )
+  const [isDesktop, setIsDesktop] = useState(true)
 
   useEffect(() => {
-    if (typeof window === "undefined") return
+    setIsDesktop(window.innerWidth > breakpoint)
     const mql: MediaQueryList = window.matchMedia(
       `(min-width: ${breakpoint}px)`
     )
